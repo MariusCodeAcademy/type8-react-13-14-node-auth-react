@@ -5,3 +5,4 @@
 3. /login /register /posts /(homepage)
 4. 404 page
 5. npm i bootstrap@^4
+6. prideti formik ir pasiimti input reiksmes su formik
