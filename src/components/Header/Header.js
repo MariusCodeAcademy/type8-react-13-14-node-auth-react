@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router-dom';
 function Header(props) {
   return (
     <header>
-      <nav className='navbar navbar-expand-sm navbar-dark bg-dark'>
+      <nav className='navbar navbar-expand-sm navbar-dark bg-dark '>
         <div className='container'>
           <Link to={'/'} className='navbar-brand'>
             Logo
