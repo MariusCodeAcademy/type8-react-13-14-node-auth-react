@@ -1,16 +1,42 @@
+import { useFormik } from 'formik';
+
+const initValues = {
+  email: '',
+  password: '',
+};
 function LoginPage() {
+  const formik = useFormik({
+    initialValues: initValues,
+    onSubmit: (values) => {
+      console.log('values ===', values);
+    },
+  });
   return (
     <div className='container'>
       <h1 className='display-4 py-4 text-center'>LoginPage</h1>
 
-      <form className='jumbotron w-50 mx-auto'>
+      <form onSubmit={formik.handleSubmit} className='jumbotron w-50 mx-auto'>
         <div className='form-group'>
           <label htmlFor='email'>Email</label>
-          <input type='email' className='form-control' id='email' />
+          <input
+            onChange={formik.handleChange}
+            value={formik.values.email}
+            type='email'
+            className='form-control'
+            id='email'
+            name='email'
+          />
         </div>
         <div className='form-group'>
-          <label htmlFor='exampleInputPassword1'>Password</label>
-          <input type='password' className='form-control' id='exampleInputPassword1' />
+          <label htmlFor='password'>Password</label>
+          <input
+            onChange={formik.handleChange}
+            value={formik.values.password}
+            type='password'
+            className='form-control'
+            id='password'
+            name='password'
+          />
         </div>
         <button type='submit' className='btn btn-outline-dark'>
           Login
