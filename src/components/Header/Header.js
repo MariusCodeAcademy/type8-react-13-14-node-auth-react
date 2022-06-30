@@ -1,6 +1,9 @@
 import { Link, NavLink } from 'react-router-dom';
+import { useAuthCtx } from '../../store/authContext';
 
 function Header(props) {
+  const { isUserLoggedIn, logout } = useAuthCtx();
+
   return (
     <header>
       <nav className='navbar navbar-expand-sm navbar-dark bg-dark '>
@@ -16,15 +19,26 @@ function Header(props) {
               <NavLink className='nav-link' exact to={'/'}>
                 Home
               </NavLink>
-              <NavLink className='nav-link' to={'/posts'}>
-                Posts
-              </NavLink>
-              <NavLink className='nav-link' to={'/login'}>
-                Login
-              </NavLink>
-              <NavLink className='nav-link' to={'/register'}>
-                Register
-              </NavLink>
+              {isUserLoggedIn && (
+                <>
+                  <NavLink className='nav-link' to={'/posts'}>
+                    Posts
+                  </NavLink>
+                  <NavLink onClick={logout} className='nav-link' to={'/login'}>
+                    Logout
+                  </NavLink>
+                </>
+              )}
+              {!isUserLoggedIn && (
+                <>
+                  <NavLink className='nav-link' to={'/login'}>
+                    Login
+                  </NavLink>
+                  <NavLink className='nav-link' to={'/register'}>
+                    Register
+                  </NavLink>
+                </>
+              )}
             </div>
           </div>
         </div>

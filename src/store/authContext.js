@@ -20,10 +20,14 @@ const AuthProvider = ({ children }) => {
     setToken(gotToken);
     setUserEmail(gotEmail);
   };
+  const logout = () => {
+    setToken(null);
+    setUserEmail(null);
+  };
 
   const ctx = {
     login,
-    logout() {},
+    logout,
     isUserLoggedIn: !!token,
     token,
     userEmail,
