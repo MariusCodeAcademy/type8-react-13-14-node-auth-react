@@ -2,7 +2,7 @@ import { Link, NavLink } from 'react-router-dom';
 import { useAuthCtx } from '../../store/authContext';
 
 function Header(props) {
-  const { isUserLoggedIn, logout } = useAuthCtx();
+  const { isUserLoggedIn, logout, userEmail } = useAuthCtx();
 
   return (
     <header>
@@ -27,6 +27,10 @@ function Header(props) {
                   <NavLink onClick={logout} className='nav-link' to={'/login'}>
                     Logout
                   </NavLink>
+                  <a className='nav-link disabled' href='/'>
+                    {/* Hello {userEmail.split('@')[0]} */}
+                    {userEmail}
+                  </a>
                 </>
               )}
               {!isUserLoggedIn && (
