@@ -23,12 +23,13 @@ function LoginPage() {
       console.log('fetchResulg ===', fetchResulg);
     },
   });
+  console.log('formik.errors ===', formik.errors);
 
   return (
     <div className='container'>
       <h1 className='display-4 py-4 text-center'>LoginPage</h1>
 
-      <form onSubmit={formik.handleSubmit} className='jumbotron w-50 mx-auto'>
+      <form onSubmit={formik.handleSubmit} className='jumbotron small-container mx-auto'>
         <div className='form-group'>
           <label htmlFor='email'>Email</label>
           <input
