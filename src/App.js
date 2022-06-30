@@ -6,12 +6,9 @@ import PostsPage from './pages/PostsPage';
 import HomePage from './pages/HomePage';
 import NotFoundPage from './pages/NotFoundPage';
 import Header from './components/Header/Header';
-import { useAuthCtx } from './store/authContext';
 import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
-  const { isUserLoggedIn } = useAuthCtx();
-
   return (
     <div className='App'>
       <Header />
