@@ -1,8 +1,12 @@
+import Card from '../components/Card/Card';
+
 function PostsPage() {
-  // https://getbootstrap.com/docs/4.6/components/card/
   return (
-    <div>
-      <h1>PostsPage</h1>
+    <div className='container'>
+      <h1 className='display-4 py-4'>Our Posts</h1>
+      <div className='d-flex flex-wrap gap-1'>
+        <Card title='title' date='2017-01-01' content='very very impotant content' />
+      </div>
     </div>
   );
 }
