@@ -6,9 +6,11 @@ import PostsPage from './pages/PostsPage';
 import HomePage from './pages/HomePage';
 import NotFoundPage from './pages/NotFoundPage';
 import Header from './components/Header/Header';
+import { useAuthCtx } from './store/authContext';
+import ProtectedRoute from './components/ProtectedRoute';
 
 function App() {
-  // console.log('process.env.REACT_APP_BACKEND_URL', process.env.REACT_APP_BACKEND_URL);
+  const { isUserLoggedIn } = useAuthCtx();
 
   return (
     <div className='App'>
@@ -20,9 +22,13 @@ function App() {
         <Route path={'/login'}>
           <LoginPage />
         </Route>
-        <Route path={'/posts'}>
+        <ProtectedRoute path={'/posts'}>
           <PostsPage />
-        </Route>
+        </ProtectedRoute>
+        {/* <Route path={'/posts'}>
+          {isUserLoggedIn && <PostsPage />}
+          {!isUserLoggedIn && <h2>Please login</h2>}
+        </Route> */}
         <Route exact path={'/'}>
           <HomePage />
         </Route>
